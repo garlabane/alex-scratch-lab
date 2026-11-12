@@ -6,9 +6,29 @@
 *{box-sizing:border-box}
 body{font-family:"Segoe UI",system-ui,sans-serif;color:var(--ink);margin:0;background:#eaf1ff;line-height:1.6}
 .wrap{max-width:900px;margin:0 auto;padding:20px}
-header.hero{background:linear-gradient(135deg,#4c97ff,#9966ff);color:#fff;border-radius:22px;padding:26px 28px;box-shadow:0 10px 30px rgba(76,151,255,.35)}
-header.hero h1{margin:0 0 6px;font-size:27px}
-header.hero p{margin:5px 0;opacity:.96}
+header.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#4c97ff,#9966ff);color:#fff;border-radius:26px;padding:30px 30px 28px;box-shadow:0 14px 36px rgba(76,151,255,.35);display:grid;grid-template-columns:1.25fr 1fr;gap:16px;align-items:center}
+header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;background-image:radial-gradient(circle,#fff 2px,transparent 2.6px);background-size:24px 24px}
+header.hero>*{position:relative}
+.hero-sur{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700;letter-spacing:.02em}
+header.hero h1{margin:10px 0 8px;font-size:clamp(28px,4.4vw,40px);line-height:1.1}
+header.hero p{margin:6px 0;opacity:.96}
+.hero-grand{font-size:17px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:12px 0 4px}
+.hero-chips li{background:#fff;color:#4c5fd0;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.hero-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.hbtn{display:inline-block;padding:10px 18px;border-radius:999px;font-weight:700;text-decoration:none;color:#fff;border:2px solid rgba(255,255,255,.85);font-size:15px}
+.hbtn.plein{background:#ffbf00;border-color:#ffbf00;color:#3a2a00}
+@media(hover:hover){.hbtn:hover{background:rgba(255,255,255,.15)}.hbtn.plein:hover{background:#ffcc33}}
+.hero-img{width:100%;height:auto;filter:drop-shadow(0 10px 18px rgba(20,30,80,.25))}
+@media(max-width:720px){header.hero{grid-template-columns:1fr;padding:24px 20px}.hero-img{order:-1;max-width:340px;margin:0 auto}}
+.film{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:16px;align-items:start;margin:12px 0}
+.film video{width:100%;aspect-ratio:9/16;border-radius:16px;background:#22314e;box-shadow:0 8px 24px rgba(34,49,78,.2)}
+.vues{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.vues figure{margin:0}
+.vues img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;border-radius:12px;display:block;border:2px solid #fff;box-shadow:0 3px 10px rgba(34,49,78,.1)}
+.vues figcaption{font-size:13px;text-align:center;color:#41527a;margin-top:4px;font-weight:600}
+.note-ia{font-size:13px;color:#5a6b8c;margin:4px 0 0}
+@media(max-width:720px){.film{grid-template-columns:1fr}.film video{max-width:300px;margin:0 auto;display:block}}
 h2.chap{margin:34px 0 8px;font-size:22px;background:linear-gradient(90deg,#4c97ff22,transparent);border-left:9px solid #4c97ff;padding:9px 12px;border-radius:6px}
 .lead{color:#41527a;margin:2px 0 12px}
 .box{background:#fff;border-radius:16px;padding:16px 20px;margin:14px 0;box-shadow:0 3px 12px rgba(34,49,78,.08)}
@@ -77,6 +97,7 @@ footer{text-align:center;color:#5a6b8c;padding:24px;font-size:13px}
 #menuList a.m-lecon:before{content:"→ ";color:#9aa3b5}
 #menuOverlay{position:fixed;inset:0;background:rgba(20,30,50,.35);z-index:65;opacity:0;pointer-events:none;transition:opacity .25s}
 #menuOverlay.open{opacity:1;pointer-events:auto}
+@media(max-width:1199px){.wrap{padding-top:64px}}
 @media(min-width:1200px){#menu{transform:translateX(0)}#menuBtn,#menuOverlay{display:none}.wrap{margin-left:290px}}
 .verifdrop{border:2px dashed #b9c9e8;border-radius:14px;padding:22px;text-align:center;background:#f7fbff;margin:12px 0}
 .verifdrop.drag{background:#eaf4ff;border-color:#4c97ff}
@@ -97,14 +118,37 @@ footer{text-align:center;color:#5a6b8c;padding:24px;font-size:13px}
 <div id="menuOverlay"></div>
 <div class="wrap">
 <header class="hero">
-  <h1>🐑 Le Livre de Moutons — le tuto d'Alexandre</h1>
-  <p>Un guide <b>pas à pas</b>, très détaillé, pour comprendre et fabriquer ton jeu sur Scratch.</p>
-  <p>À chaque étape, tu vois les <b>vrais blocs Scratch</b> et on t'explique <b>ce que fait chaque bloc</b>, tout simplement.</p>
+  <div class="hero-txt">
+    <span class="hero-sur">Tutoriel Scratch gratuit · dès 9 ans</span>
+    <h1>🐑 Le Livre de Moutons</h1>
+    <p class="hero-grand">Apprends à coder <b>un vrai jeu de cartes à collectionner</b> : des boosters à ouvrir, 36 moutons à dessiner, des raretés et un album à remplir.</p>
+    <p>À chaque étape, tu vois les <b>vrais blocs Scratch</b> et on t'explique <b>ce que fait chaque bloc</b>, tout simplement.</p>
+    <ul class="hero-chips"><li>14 leçons</li><li>36 cartes</li><li>Vérificateur</li><li>Sans compte</li></ul>
+    <div class="hero-btns">
+      <a class="hbtn plein" href="#lecons">Commencer le tuto</a>
+      <a class="hbtn" href="Livre-de-Moutons.sb3" download>Télécharger le jeu</a>
+      <a class="hbtn" href="#verificateur">Vérifier mon projet</a>
+    </div>
+  </div>
+  <img class="hero-img" src="media/cartes-eventail.png" alt="Trois cartes du jeu : mouton des glaces, mouton arc-en-ciel, mouton pharaon" width="620" height="460">
 </header>
+
+<h2 class="chap">🎬 Le projet en vidéo</h2>
+<div class="film">
+  <video controls playsinline preload="none" poster="media/livre-de-moutons.jpg" src="media/livre-de-moutons.mp4" aria-label="Vidéo : un ado dessine ses cartes moutons, code le jeu dans Scratch et montre le résultat"></video>
+  <div class="vues">
+    <figure><img src="media/vues/1-dessiner.jpg" alt="Dessiner une carte mouton aux crayons de couleur" loading="lazy"><figcaption>1. Dessiner ses cartes</figcaption></figure>
+    <figure><img src="media/vues/2-coder.jpg" alt="Un ado code le jeu dans Scratch sur son portable" loading="lazy"><figcaption>2. Coder dans Scratch</figcaption></figure>
+    <figure><img src="media/vues/3-blocs.jpg" alt="Gros plan sur les blocs Scratch du jeu" loading="lazy"><figcaption>3. Bloc par bloc</figcaption></figure>
+    <figure><img src="media/vues/4-tester.jpg" alt="L'ado se réjouit : le booster s'ouvre à l'écran" loading="lazy"><figcaption>4. Ça marche !</figcaption></figure>
+    <figure><img src="media/vues/5-montrer.jpg" alt="L'ado montre ses cartes moutons" loading="lazy"><figcaption>5. Son propre jeu</figcaption></figure>
+  </div>
+</div>
+<p class="note-ia">Images d'illustration créées par intelligence artificielle, à partir des vraies cartes, du vrai booster et des vrais blocs du jeu.</p>
 
 <h2 class="chap">🎮 D'abord : joue au jeu déjà fini !</h2>
 <div class="box">
-<p>Dans ce dossier, il y a le fichier <span class="mono">Livre-de-Moutons.sb3</span> : c'est le <b>jeu complet, déjà fabriqué</b>. Regarde-le marcher, ça t'aidera à comprendre où tu vas.</p>
+<p>Le fichier <a href="Livre-de-Moutons.sb3" download><span class="mono">Livre-de-Moutons.sb3</span></a> (à télécharger ici) c'est le <b>jeu complet, déjà fabriqué</b>. Regarde-le marcher, ça t'aidera à comprendre où tu vas.</p>
 <div class="steps">
 <div class="step">Va sur <b>scratch.mit.edu</b> et clique <b>Créer</b>.</div>
 <div class="step">En haut à gauche, clique <b>Fichier</b> → <b>Importer depuis votre ordinateur</b>.</div>
@@ -375,7 +419,7 @@ footer{text-align:center;color:#5a6b8c;padding:24px;font-size:13px}
 <div class="callout">💡 <span class="mono">possede</span> et <span class="mono">niveau</span> se remplissent <b>tout seuls</b> au démarrage (c'est la Leçon 1 juste après). Laisse-les <b>vides</b> pour l'instant.</div>
 </div>
 
-<h2 class="chap">🔨 On construit le jeu — leçon par leçon</h2>
+<h2 class="chap" id="lecons">🔨 On construit le jeu — leçon par leçon</h2>
 <p class="lead">Maintenant que le projet est prêt (sprite Carte, décors, variables, listes remplies), on ajoute le code. Ces scripts se mettent sur le sprite <b>Carte</b>. Chaque leçon suit le même plan : <b>🎯 le but</b>, <b>📦 où trouver les blocs</b>, l'image des blocs, <b>🔍 ce que fait chaque bloc</b>, <b>💡 pourquoi</b>, et <b>✅ un test</b>. Prends ton temps, une leçon à la fois.</p>
 <section class="lecon">
     <div class="lecon-h"><span class="lnum">1</span> Remplir les listes quand on démarre</div>
@@ -772,7 +816,7 @@ footer{text-align:center;color:#5a6b8c;padding:24px;font-size:13px}
 <tr><td class="num">35</td><td>Mouton explorateur</td><td><span class="badge" style="background:#c0392b">Épique</span></td><td class="num">❤33 🌿27</td><td class="num">1 sur 50</td></tr>
 <tr><td class="num">36</td><td>Mouton cueilleur</td><td><span class="badge" style="background:#3aa0ff">Commune</span></td><td class="num">❤13 🌿8</td><td class="num">1 sur 22</td></tr></tbody></table>
 
-<footer>Livre 1 — Les Moutons de Base · 36 cartes · fait avec ❤ pour Alexandre 🐑<br>Les blocs sont de vraies images de l'éditeur Scratch.</footer>
+<footer><p><a href="https://garlabane.github.io/">← Tous les projets de Sophie</a></p>Livre 1 — Les Moutons de Base · 36 cartes · fait avec ❤ pour Alexandre 🐑<br>Les blocs sont de vraies images de l'éditeur Scratch.</footer>
 </div>
 <script src="vendor/jszip.min.js"></script>
 <script src="vendor/app.js"></script>

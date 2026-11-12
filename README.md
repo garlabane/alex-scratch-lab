@@ -3,7 +3,7 @@
 Un jeu de collection de cartes « moutons » fait sur **Scratch** par Alexandre, avec un **tutoriel complet** pour apprendre à le refaire, pas à pas.
 
 ## 📖 Le tutoriel en ligne
-👉 **https://sophiegarguilo-star.github.io/alex-scratch-lab/**
+👉 **https://garlabane.github.io/alex-scratch-lab/**
 
 14 leçons (6 cœur + 8 avancées) avec les vrais blocs Scratch, un schéma de l'éditeur, et un **vérificateur** : dépose ton fichier `.sb3` pour voir ce qui est bon et ce qu'il te manque (tout se passe dans ton navigateur, rien n'est envoyé).
 
